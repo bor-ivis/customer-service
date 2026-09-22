@@ -2,6 +2,7 @@ package com.avougjagi.customerservice;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -10,6 +11,8 @@ import java.util.List;
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
+    private final RestTemplate restTemplate;
+    private static final String BOOKING_SERVICE_URL ="http://localhost:8080/api/bookings";
 
     public List<CustomerDTO> findAll() {
         return customerRepository.findAll()
@@ -30,7 +33,7 @@ public class CustomerService {
         return toDTO(saved);
     }
 
-    // TODO Steg 7: fråga bokningstjänsten om aktiva bokningar innan borttagning
+
     public boolean delete(Long id) {
         if (!customerRepository.existsById(id)) {
             return false;
