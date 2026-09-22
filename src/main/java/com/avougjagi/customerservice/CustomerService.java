@@ -33,11 +33,17 @@ public class CustomerService {
         return toDTO(saved);
     }
 
-
     public boolean delete(Long id) {
         if (!customerRepository.existsById(id)) {
             return false;
         }
+        Boolean hasBookings = restTemplate.getForObject(BOOKING_SERVICE_URL +
+                "/customer/" + id + "/exists", Boolean.class);
+
+        if (Boolean.TRUE.equals(hasBookings)) {
+            return false;
+        }
+
         customerRepository.deleteById(id);
         return true;
     }
