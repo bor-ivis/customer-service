@@ -12,7 +12,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final RestTemplate restTemplate;
-    private static final String BOOKING_SERVICE_URL ="http://localhost:8080/api/bookings";
+    private static final String BOOKING_SERVICE_URL ="http://pensionaten:8080/api/bookings";
 
     public List<CustomerDTO> findAll() {
         return customerRepository.findAll()

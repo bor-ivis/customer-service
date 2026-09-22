@@ -6,6 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.web.client.RestTemplate;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 
 import java.util.List;
 import java.util.Optional;
@@ -98,11 +101,13 @@ class CustomerServiceTest {
         assertFalse(result);
         verify(customerRepository, never()).deleteById(anyLong());
     }
-
+    @Mock
+    private RestTemplate restTemplate;
     @Test
     void delete_shouldReturnTrue_whenCustomerExists() {
 
         when(customerRepository.existsById(9L)).thenReturn(true);
+        when(restTemplate.getForObject(anyString(), eq(Boolean.class))).thenReturn(false);
 
         boolean result = customerService.delete(9L);
 
