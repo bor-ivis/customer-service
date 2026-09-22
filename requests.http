@@ -1,0 +1,25 @@
+POST http://localhost:8081/api/customers
+Content-Type: application/json
+
+{
+  "firstName": "Anna",
+  "lastName": "Andersson",
+  "email": "anna@example.com",
+  "phone": "+46701234567"
+}
+###
+GET http://localhost:8081/api/customers
+
+### Uppdatera en kund
+PUT http://localhost:8081/api/customers/2
+Content-Type: application/json
+
+{
+  "firstName": "Anna",
+  "lastName": "Svensson",
+  "email": "anna@example.com",
+  "phone": "+46701234567"
+}
+
+### Ta bort en kund
+DELETE http://localhost:8081/api/customers/1
