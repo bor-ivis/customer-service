@@ -1,11 +1,11 @@
-POST http://localhost:8081/api/customers
+POST https://customer-service-production-d015.up.railway.app/api/customers
 Content-Type: application/json
 
 {
-  "firstName": "Anna",
-  "lastName": "Andersson",
-  "email": "anna@example.com",
-  "phone": "+46701234567"
+  "firstName": "Test",
+  "lastName": "Testsson",
+  "email": "test@test.com",
+  "phone": "0701234567"
 }
 ###
 GET http://localhost:8081/api/customers
@@ -23,3 +23,4 @@ Content-Type: application/json
 
 ### Ta bort en kund
 DELETE http://localhost:8081/api/customers/4
+
