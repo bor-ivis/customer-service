@@ -55,7 +55,7 @@ public class CustomerController {
             return ResponseEntity.noContent().build();
         } catch (ResourceAccessException e) {
             return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
-                    .body("Kunde inte kontrollera bokningar just nu. Försök igen senare.");
+                    .body("Kunde inte hantera bokningar just nu. Försök igen senare.");
         }
     }
 }

@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ### Ta bort en kund
-DELETE http://localhost:8081/api/customers/1
+DELETE http://localhost:8081/api/customers/4
